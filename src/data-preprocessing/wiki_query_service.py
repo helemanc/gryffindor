@@ -53,8 +53,28 @@ class WikidataService(object):
         Args:
             data (dict): meta data
         """
+        item_id_list, train_data = [], []
+        for result in data:
+            item_id_list.append(result['item']['value'])
+        item_id_list = list(set(item_id_list))
+
+        for item in item_id_list:
+            problabel_list = []
+            for result in data:
+                if result["item"]["value"] == item:
+                    if "pic" in result.keys():
+                        pic = result["pic"]["value"]
+
+                    problabel_list.append(result["proplabel"]["value"])
+            if "pic" in data[0].keys():
+
+                row = {"item_id": item, "pic": pic, "problabel_list": list(set(problabel_list))}
+            else:
+                row = {"item_id": item, "problabel_list": list(set(problabel_list))}
+            train_data.append(row)
+
         with open(file_name, "w", encoding='utf8') as outfile:
-            for id, line in enumerate(data):
+            for id, line in enumerate(train_data):
                 json.dump({"id": id, "item info": line}, outfile, ensure_ascii=False, indent=4)
 
         
