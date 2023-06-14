@@ -64,13 +64,14 @@ class WikidataService(object):
                 if result["item"]["value"] == item:
                     if "pic" in result.keys():
                         pic = result["pic"]["value"]
+                    label = result["itemLabel"]["value"]
 
                     problabel_list.append(result["proplabel"]["value"])
             if "pic" in data[0].keys():
 
-                row = {"item_id": item, "pic": pic, "problabel_list": list(set(problabel_list))}
+                row = {"item_id": item, "label":label,  "pic": pic, "problabel_list": list(set(problabel_list))}
             else:
-                row = {"item_id": item, "problabel_list": list(set(problabel_list))}
+                row = {"item_id": item, "label":label, "problabel_list": list(set(problabel_list))}
             train_data.append(row)
 
         with open(file_name, "w", encoding='utf8') as outfile:
