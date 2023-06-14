@@ -8,6 +8,7 @@ import configparser
 
 # SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 # sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
+LANG_PROP = ["label", "altLabel"]
 
 class WikidataService(object):
 
@@ -65,13 +66,17 @@ class WikidataService(object):
                     if "pic" in result.keys():
                         pic = result["pic"]["value"]
                     label = result["itemLabel"]["value"]
+                    predicate = result["property"]["value"].split("/")[-1].split("#")[-1]
+                    if not predicate in LANG_PROP:
+                        if str(predicate).startswith("P"):
+                            predicate = self.getResult(self.get_prob_label(predicate))[0]["itemLabel"]["value"]
+                        problabel_list.append({"subject": label, "predicate":predicate, "prob":result["proplabel"]["value"]})
 
-                    problabel_list.append(result["proplabel"]["value"])
             if "pic" in data[0].keys():
-
-                row = {"item_id": item, "label":label,  "pic": pic, "problabel_list": list(set(problabel_list))}
+                
+                row = {"item_id": item, "label":label,  "pic": pic, "problabel_list": problabel_list}
             else:
-                row = {"item_id": item, "label":label, "problabel_list": list(set(problabel_list))}
+                row = {"item_id": item, "label":label, "problabel_list": problabel_list}
             train_data.append(row)
 
         with open(file_name, "w", encoding='utf8') as outfile:
@@ -82,7 +87,7 @@ class WikidataService(object):
     def get_sparql_image(self):
         dataset_query = """SELECT *
                         WHERE {
-                            ?item wdt:P31* wd:"""+self.wiki_id+""" ;
+                            ?item wdt:P31*/wdt:P279* wd:"""+self.wiki_id+""" ;
                                 rdfs:label ?itemLabel .
                             ?item wdt:P18 ?pic .
                             ?item ?property ?proplabel .
@@ -93,15 +98,24 @@ class WikidataService(object):
     def get_sparql(self):
         dataset_query = """SELECT *
                         WHERE {
-                            ?item wdt:P31* wd:"""+self.wiki_id+""" ;
+                            ?item wdt:P31*/wdt:P279* wd:"""+self.wiki_id+""" ;
                                 rdfs:label ?itemLabel .
                             ?item ?property ?proplabel .
                             FILTER(LANG(?itemLabel) = "en") .
-                            FILTER(LANG(?proplabel) = "en")
+                            FILTER(LANG(?proplabel) = "en") .
                         }"""
         return dataset_query
+    def get_prob_label(self, prob_id):
+        prob_query = """SELECT *
+                        WHERE {
+                            wd:"""+prob_id+""" rdfs:label ?itemLabel .
+                            FILTER(LANG(?itemLabel) = "en")
+                        }"""
+        return prob_query
+
 if __name__ == '__main__':
 
     service = WikidataService("Q95074", "en")
     service.create_dataset()
+
 
