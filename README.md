@@ -10,7 +10,7 @@ The repository is organized as follows:
 - **images**: Each item present in the data has its own folder within this directory. Each folder contains four images: the ground truth image retrieved from Wikidata (if available) and the four images generated using DALL-E based on the corresponding prompts we created.
 - **results**: This directory presents the results of our evaluation framework. It includes both a CSV and a JSON version of the analysis of prompts and their corresponding images.
 - **src**: The source code required to obtain the data, build the dataset, and run the evaluation framework can be found in this directory.
-- **utils**: This directory contains utility functions used for data retrieval, dataset construction, and building the evaluation framework.
+- **src/utils**: This directory contains utility functions used for data retrieval, dataset construction, and building the evaluation framework.
 
 ## Usage
 
