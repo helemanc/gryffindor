@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="cb23e9f7-dae6-4d01-8512-7f1383b613a9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/prompt_wiki_fiction_data_image.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/prompt_wiki_fiction_data_image.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/generated/Q51730_prova_basic_prompt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/generated/Q51730_prova_plain_prompt.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q100255110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q11817132.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q12900933.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q19844547.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q2039651.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q3568234.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q5163561.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q51730.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q6140646.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q6171868.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q692395.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/original/Q895692.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/emotion_prediction_prompt.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/emotion_prediction_prompt.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "evaluation-framework",
-    "last_opened_file_path": "/Users/helemanc/PycharmProjects/gryffindor/images/generated",
+    "last_opened_file_path": "/Users/helemanc/PycharmProjects/gryffindor/images/Q51730",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -48,9 +62,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images/Q51730" />
       <recent name="$PROJECT_DIR$/images/generated" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images/generated/Q51730_prova" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
@@ -63,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686755929178</updated>
       <workItem from="1686755930247" duration="197000" />
-      <workItem from="1686756135063" duration="17778000" />
+      <workItem from="1686756135063" duration="30357000" />
     </task>
     <servers />
   </component>
@@ -73,6 +89,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gryffindor$ciao.coverage" NAME="ciao Coverage Results" MODIFIED="1686828515091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/gryffindor$image_download.coverage" NAME="image_download Coverage Results" MODIFIED="1686825368526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/gryffindor$main.coverage" NAME="main Coverage Results" MODIFIED="1686835790616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/gryffindor$emotion_prediction_prompt.coverage" NAME="emotion_prediction_prompt Coverage Results" MODIFIED="1686915374074" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/gryffindor$main.coverage" NAME="main Coverage Results" MODIFIED="1686919815991" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
