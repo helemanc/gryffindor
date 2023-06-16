@@ -2,6 +2,9 @@ import os
 import pandas as pd
 import json
 from utils import data_loader, image_download
+from transformers import pipeline
+
+
 import urllib
 
 
@@ -16,10 +19,11 @@ data_image = data_loader.load_wiki_data(data_dir, 'prompt_wiki_fiction_data_imag
 
 
 # download images
-image_download.download_image(project_dir, data_image)
+#image_download.download_image(project_dir, data_image)
 
 
-
+classifier = pipeline("text-classification", model="j-hartmann/emotion-english-distilroberta-base", return_all_scores=True)
+print(classifier(data_image['basic_prompt'][0]))
 
 # basic prompt -> naame of the character +
 # plain text of triples -> concatenation of the all sentences in made from the concatenation of the words of the triplets
