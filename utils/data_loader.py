@@ -26,7 +26,7 @@ def load_wiki_data(data_dir, file_name):
         plain_prompts.append(el['plain_prompt'])
         verbalised_prompts.append(el['verbalised_prompt'])
         enriched_prompts.append(el['wiki_abstract'])
-    df = pd.DataFrame({'item_id': item_ids, 'label': labels, 'basic_prompt': basic_prompts, 'plain_prompt': plain_prompts, 'verbalised_prompt': verbalised_prompts, 'pic': pics_urls})
+    df = pd.DataFrame({'item_id': item_ids, 'label': labels, 'basic_prompt': basic_prompts, 'plain_prompt': plain_prompts, 'verbalised_prompt': verbalised_prompts, 'wiki_abstract': enriched_prompts, 'pic': pics_urls})
     return df
 
 #def load_deep_face_output()
