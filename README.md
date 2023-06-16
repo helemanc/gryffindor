@@ -1,6 +1,6 @@
 # Draw Me Like Your Triples: Leveraging Generative AI for the Completion of Wikidata
 
-This repository contains the code and resources for the research project "Draw Me Like Your Triples: Leveraging Generative AI for the Completion of Wikidata". The project was conducted by Eleonora Mancini and BlaBlaBla under the supervision of Prof. Albert Merono.
+This repository contains the code and resources for the research project "Draw Me Like Your Triples: Leveraging Generative AI for the Completion of Wikidata". The project was conducted by Raia Abu Ahmad, Martin Critelli, Şefika Efeoğlu, Eleonora Mancini, Célian Ringwald and Xinyue Zhang under the supervision of Prof. Albert Merono.
 
 ## Repository Structure
 
