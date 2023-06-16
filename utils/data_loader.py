@@ -16,7 +16,7 @@ def load_wiki_data(data_dir, file_name):
     basic_prompts = []
     plain_prompts = []
     verbalised_prompts = []
-    #enriched_prompts = [] # TODO: add this as soon as we have the data
+    enriched_prompts = [] # TODO: add this as soon as we have the data
     pics_urls = []
     for el in data:
         item_ids.append(el['item_id'].split('/')[-1])
@@ -25,7 +25,7 @@ def load_wiki_data(data_dir, file_name):
         basic_prompts.append(el['basic_prompt'])
         plain_prompts.append(el['plain_prompt'])
         verbalised_prompts.append(el['verbalised_prompt'])
-        #enriched_prompts.append(el[0]['enriched_prompt'])
+        enriched_prompts.append(el['wiki_abstract'])
     df = pd.DataFrame({'item_id': item_ids, 'label': labels, 'basic_prompt': basic_prompts, 'plain_prompt': plain_prompts, 'verbalised_prompt': verbalised_prompts, 'pic': pics_urls})
     return df
 
