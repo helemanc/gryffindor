@@ -5,7 +5,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1                        
 #SBATCH --mem-per-cpu=10240                  
-#SBATCH --time=14:00:00                           
+#SBATCH --time=20:00:00                           
 #SBATCH --qos=standard                         
 #SBATCH --cpus-per-task=1
 

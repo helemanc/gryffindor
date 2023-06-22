@@ -1,0 +1,809 @@
+{
+    "id": 0,
+    "item info": {
+        "item_id": "http://www.wikidata.org/entity/Q589261",
+        "label": "Susannah Dean",
+        "triple_list": [
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "country in North America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "United States of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the States"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the U.S."
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the United States"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the United States of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the US"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the USA"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "U. S."
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "U. S. A."
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "U.S."
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "U.S.A."
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "US of A"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "USA"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "United States"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "US"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the U.S. of A"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the U.S. of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the U.S.A."
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the US of A"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "the US of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "U.S. of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "US of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "In God We Trust"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "American"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "country of citizenship",
+                "object": "Americans"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York City"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "most populous city in the United States of America"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "Capital of the World"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "Caput Mundi"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "Center of the Universe"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "city of New York"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "City of New York"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York (city)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York City (NYC)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York City, New York"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York City, NY"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York, NY"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "NY City"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "The City So Nice They Named It Twice"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "the five boroughs"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "Big Apple"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New York, New York"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "NYC"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "Fort Neu-Amsterdam"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "The City That Never Sleeps"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "residence",
+                "object": "New Yorker"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "MPD"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "DID"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "multiple personality"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "multiple personality disorder"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "mental disorder, characterized by multiple personality states and amnesia"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "dissociative identity disorder"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "creator",
+                "object": "Richard Bachman"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "creator",
+                "object": "John Swithen"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "creator",
+                "object": "Stephen Edwin King"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "creator",
+                "object": "Stephen King"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "creator",
+                "object": "American writer (born 1947)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "Americans with sub-Saharan African ancestry"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "African Americans"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "African American"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "African-American"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "African American people"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "Afro-Americans"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "Black Americans"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "ethnic group",
+                "object": "Black or African American"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "present in work",
+                "object": "2003 novel by Stephen King"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "present in work",
+                "object": "The Dark Tower V: Wolves of the Calla"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "present in work",
+                "object": "Wolves of the Calla"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "present in work",
+                "object": "novel series by Stephen King"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "present in work",
+                "object": "The Dark Tower"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "present in work",
+                "object": "Dark Tower"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "family name",
+                "object": "family name"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "family name",
+                "object": "Dean"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "a person able to shoot quickly and accurately with a gun"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "gunfighter"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "gunman"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "gunslinger"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "family name",
+                "object": "Walker"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "given name",
+                "object": "female given name"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "given name",
+                "object": "Mia"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "given name",
+                "object": "Mia (first name)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "given name",
+                "object": "Mia (given name)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "spouse",
+                "object": "character from Stephen King's The Dark Tower"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "spouse",
+                "object": "Eddie Dean"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "spouse",
+                "object": "The Prisoner"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "fictional character appearing in written works"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "literary character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "family name",
+                "object": "Holmes"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "book character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "character in a book"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "character in a novel"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "character in literature"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "literature character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "novel character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "significant person",
+                "object": "Detta and Odetta"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "f"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "fem"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "♀"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "woman"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "female character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "to be used in \"sex or gender\" (P21) to indicate that the human subject is a female or \"semantic gender\" (P10339) to indicate that a word refers to a female person"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "narrative role",
+                "object": "character in a narrative that is not focused on by the primary storyline"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "narrative role",
+                "object": "supporting character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "use with Property:P21 sex or gender. For groups of females use with subclass of (P279)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "female"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "lady"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "fairer sex"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "female gender"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "female human"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "female person"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "girl"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "girls"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "human female"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "sex or gender",
+                "object": "women"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "given name",
+                "object": "Susannah"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "removal of a body extremity due to an accident or combat"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "traumatic amputation"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "crushing injury and traumatic amputation of unspecified body region"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "crushing injury NOS"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "traumatic amputation NOS"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "medical condition",
+                "object": "Amputation, Traumatic"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "person who by means of travel searches out new information"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "explorer"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "discoverer"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "explorer (discoverer)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "field of work",
+                "object": "worldwide social and political movements in the 20th century"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "campaigner"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "advocate"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "field of work",
+                "object": "civil rights movements"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "person working with promoting or impeding, or causing social, political, economic, or environmental change"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "activist"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "fictional person"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "fictional man"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "fictional persons"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "fictional woman"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "human fictional character"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "human fictional characters"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "human being that only exists in fictional works"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "instance of",
+                "object": "fictional human"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "eye color"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "social fighter"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "occupation",
+                "object": "social promoter"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown (eye color)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown (eye colour)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown (eye)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown (eyes)"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown eye"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown eye color"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown eye colour"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown eyes"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown-eyed"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown-eyed human"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "eye color",
+                "object": "brown-eyed person"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "from narrative universe",
+                "object": "fictional universe of Stephen King's work"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "from narrative universe",
+                "object": "Multiverse"
+            },
+            {
+                "subject": "Susannah Dean",
+                "predicate": "given name",
+                "object": "Odetta"
+            }
+        ]
+    }
+}

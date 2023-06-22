@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=data_wiki            
+#SBATCH --job-name=data_wiki_image        
 #SBATCH --mail-user=sefie08@zedat.fu-berlin.de  
 #SBATCH --mail-type=end
 #SBATCH --nodes=1
@@ -16,4 +16,4 @@ module add Python/3.9.5-GCCcore-10.3.0
 
 source ~/path/to/new/virtual/environment/bin/activate
 
-python wiki_query_service_all.py
+python wiki_query_service.py
