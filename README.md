@@ -35,7 +35,7 @@ The repository is organized as follows:
 - **src/utils**: This directory contains utility functions used for data retrieval, dataset construction, and building the evaluation framework.
 
 ## Usage
-
+The ground truth image data is [available](https://huggingface.co/datasets/gryffindor-ISWS/fictional-characters-image-dataset) @ :hugs: .
 ### 1.) Raw Data Collection
 * Wikidata Dataset Creation
 ```bash
