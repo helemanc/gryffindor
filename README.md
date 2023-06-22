@@ -2,6 +2,8 @@
 
 This repository contains the code and resources for the research project "Draw Me Like Your Triples: Leveraging Generative AI for the Completion of Wikidata". The project was conducted by Raia Abu Ahmad, Martin Critelli, Şefika Efeoğlu, Eleonora Mancini, Célian Ringwald and Xinyue Zhang under the supervision of Prof. Albert Merono.
 
+## Project Description
+wip!
 ## Repository Structure
 Folder Structure:
 ```
@@ -45,6 +47,44 @@ The repository is organized as follows:
 ## Usage
 
 To replicate our experiments or use our code, please refer to the individual directories mentioned above. The `src` directory contains the main codebase, while the `data` and `images` directories hold the relevant datasets and generated images. The `results` directory provides the outcome of our evaluation framework.
+### 1.) Raw Data Collection
+* Wikidata Dataset Creation
+```bash
+cd src/data-preprocessing
+python wiki_query_service.py
+```
+* DBpedia Abstract Collection
+```bash
+cd src/data-preprocessing
+python get_dbpedia_abstracts.py
+```
+
+### 2.) Prompt Generation
+
+(wip)
+
+### 3.) Ground Truth Image Collection
+```bash
+cd src/data-preprocessing
+python ground_truth_image_collection.py
+```
+### 4.) Image Generation
+```bash
+cd src/image-generator
+python image_generation.py
+```
+### 5.) Evaluation
+* Image Semantic Evaluation
+
+```bash
+cd src/evaluation/evaluation-image-semantic
+python evaluation_uqi.py
+```
+* Emotion Evaluation
+```bash
+cd src/evaluation/evaluation-emotion
+python evaluation_emotion.py
+```
 
 ## Contact
 
