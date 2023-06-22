@@ -36,7 +36,6 @@ The repository is organized as follows:
 
 ## Usage
 
-To replicate our experiments or use our code, please refer to the individual directories mentioned above. The `src` directory contains the main codebase, while the `data` and `images` directories hold the relevant datasets and generated images. The `results` directory provides the outcome of our evaluation framework.
 ### 1.) Raw Data Collection
 * Wikidata Dataset Creation
 ```bash
