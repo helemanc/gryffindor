@@ -1,0 +1,2 @@
+qwikidata==0.4.2
+deepface==0.0.68
