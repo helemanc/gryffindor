@@ -8,6 +8,8 @@ src/data/
 images/
 *.so
 *.zip
+old_data/
+old_results/
 # Distribution / packaging
 .Python
 build/
