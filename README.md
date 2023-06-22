@@ -6,35 +6,25 @@ This repository contains the code and resources for the research project "Draw M
 wip!
 ## Repository Structure
 Folder Structure:
-```
+``` bash
 .
-├── dataset
-│   ├── image-data
-│   │   ├── generated-data
-│   │   └── ground-truth
-│   ├── prompt-data
-│   ├── raw-data
-│   └── unavailable_pic_ids
-├── old_data
-│   ├── all
-│   ├── data
-│   ├── evaluation
-│   ├── images
-│   └── prompts
-├── old_results
-│   └── images
-│       ├── generated
-│       └── original
-├── scripts
+├── dataset     -->  Dataset folder
+│   ├── image-data 
+│   │   ├── generated-data     ---> Generated images of the fictional characters
+│   │   └── ground-truth     ---> Original images of the fictional characters
+│   ├── prompt-data     ---> Prompts generated from raw-data.
+│   ├── raw-data     ---> This directory contains the datasets created by querying Wikidata and DBpedia for fictional characters
+│   └── unavailable_pic_ids     ---> Fictional characters with unaccessible images, but have an image property in the Wikidata KB
+├── scripts     ---> Bash scripts
 └── src
-    ├── data-preprocessing
-    ├── evaluation
+    ├── data-preprocessing     ---> Data collection codes from DBpedia and Wikipedia, and ground truth image downloader
+    ├── evaluation     ---> Result evaluation
     │   ├── evaluation-emotion
     │   └── evaluation-image-semantic
-    ├── image-generator
-    ├── notebooks
-    ├── prompt-generator
-    └── utils
+    ├── image-generator     ---> text (prompt) to image generator
+    ├── notebooks     ---> visualization codes
+    ├── prompt-generator     ---> prompt generation codes
+    └── utils     ---> read, write, download, and data loader functions
 ```
 The repository is organized as follows:
 
