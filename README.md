@@ -8,23 +8,23 @@ wip!
 Folder Structure:
 ``` 
 .
-├── dataset     -->  Dataset folder
+├── dataset                    --->  Dataset folder
 │   ├── image-data 
 │   │   ├── generated-data     ---> Generated images of the fictional characters
-│   │   └── ground-truth     ---> Original images of the fictional characters
-│   ├── prompt-data     ---> Prompts generated from raw-data.
-│   ├── raw-data     ---> This directory contains the datasets created by querying Wikidata and DBpedia for fictional characters
-│   └── unavailable_pic_ids     ---> Fictional characters with unaccessible images, but have an image property in the Wikidata KB
-├── scripts     ---> Bash scripts
+│   │   └── ground-truth       ---> Original images of the fictional characters
+│   ├── prompt-data            ---> Prompts generated from raw-data.
+│   ├── raw-data               ---> This directory contains the datasets created by querying Wikidata and DBpedia for fictional characters
+│   └── unavailable_pic_ids    ---> Fictional characters with unaccessible images, but have an image property in the Wikidata KB
+├── scripts                    ---> Bash scripts
 └── src
     ├── data-preprocessing     ---> Data collection codes from DBpedia and Wikipedia, and ground truth image downloader
-    ├── evaluation     ---> Result evaluation
+    ├── evaluation             ---> Result evaluation
     │   ├── evaluation-emotion
     │   └── evaluation-image-semantic
-    ├── image-generator     ---> text (prompt) to image generator
-    ├── notebooks     ---> visualization codes
-    ├── prompt-generator     ---> prompt generation codes
-    └── utils     ---> read, write, download, and data loader functions
+    ├── image-generator        ---> text (prompt) to image generator
+    ├── notebooks              ---> visualization codes
+    ├── prompt-generator       ---> prompt generation codes
+    └── utils                  ---> read, write, download, and data loader functions
 ```
 The repository is organized as follows:
 
