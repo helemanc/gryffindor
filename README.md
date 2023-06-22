@@ -3,7 +3,37 @@
 This repository contains the code and resources for the research project "Draw Me Like Your Triples: Leveraging Generative AI for the Completion of Wikidata". The project was conducted by Raia Abu Ahmad, Martin Critelli, Şefika Efeoğlu, Eleonora Mancini, Célian Ringwald and Xinyue Zhang under the supervision of Prof. Albert Merono.
 
 ## Repository Structure
+Folder Structure:
 
+.
+├── dataset
+│   ├── image-data
+│   │   ├── generated-data
+│   │   └── ground-truth
+│   ├── prompt-data
+│   ├── raw-data
+│   └── unavailable_pic_ids
+├── old_data
+│   ├── all
+│   ├── data
+│   ├── evaluation
+│   ├── images
+│   └── prompts
+├── old_results
+│   └── images
+│       ├── generated
+│       └── original
+├── scripts
+└── src
+    ├── data-preprocessing
+    ├── evaluation
+    │   ├── evaluation-emotion
+    │   └── evaluation-image-semantic
+    ├── image-generator
+    ├── notebooks
+    ├── prompt-generator
+    └── utils
+    
 The repository is organized as follows:
 
 - **data**: This directory contains the datasets created by querying Wikidata for fictional characters and enriching them with the prompts we generated.
