@@ -4,7 +4,7 @@ This repository contains the code and resources for the research project "Draw M
 
 ## Repository Structure
 Folder Structure:
-
+```
 .
 ├── dataset
 │   ├── image-data
@@ -33,7 +33,7 @@ Folder Structure:
     ├── notebooks
     ├── prompt-generator
     └── utils
-    
+```
 The repository is organized as follows:
 
 - **data**: This directory contains the datasets created by querying Wikidata for fictional characters and enriching them with the prompts we generated.
