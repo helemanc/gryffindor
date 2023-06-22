@@ -55,12 +55,12 @@ python get_dbpedia_abstracts.py
 ### 3.) Ground Truth Image Collection
 ```bash
 cd src/data-preprocessing
-python ground_truth_image_collection.py
+python ground_truth_image_downloader.py
 ```
 ### 4.) Image Generation
 ```bash
 cd src/image-generator
-python image_generation.py
+python generator.py
 ```
 ### 5.) Evaluation
 * Image Semantic Evaluation
@@ -72,7 +72,7 @@ python evaluation_uqi.py
 * Emotion Evaluation
 ```bash
 cd src/evaluation/evaluation-emotion
-python evaluation_emotion.py
+python emotion_prediction_prompt.py
 ```
 
 ## Contact
