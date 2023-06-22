@@ -32,9 +32,10 @@ class WikidataService(object):
         try:
             results = return_sparql_query_results(sparql)
             results = results['results']['bindings']
+            
             time.sleep(1.0)
             if len(results) != 0:
-                #save the dataset
+
                 return results
             else:
                 return False
@@ -42,7 +43,7 @@ class WikidataService(object):
             return False
 
 
-    def create_dataset(self, file_name, type="alldata"):
+    def create_dataset(self, file_name, start_idx, end_idx, type="alldata"):
         """ create the dataset from the sparql query
         args:
             file_name: the name of the file to save the data
@@ -50,15 +51,15 @@ class WikidataService(object):
             """
         ## save the data
         if type == "images":
+
             image_sparql = self.get_sparql_image()
-      
             image_results = self.getResult(image_sparql)
-            all_enriched_results = self.enrich_results(image_results)
+            all_enriched_results = self.enrich_results(image_results, start_idx, end_idx)
             self.save_results(file_name, all_enriched_results)
         else:
             all_fiction_sparql = self.get_sparql()
             all_results = self.getResult(all_fiction_sparql)
-            all_enriched_results = self.enrich_results(all_results)
+            all_enriched_results = self.enrich_results(all_results, start_idx, end_idx)
             self.save_results(file_name, all_enriched_results)
 
     def save_results(self,file_name, data):
@@ -67,10 +68,9 @@ class WikidataService(object):
 
         with open(file_name, "w", encoding='utf8') as outfile:
             for id, line in enumerate(data):
-                json.dump({"id": id, "item info": line}, outfile, ensure_ascii=False, indent=4)
-                outfile.write('\n')
+                json.dump({"id": id, "item info": line}, outfile)
 
-    def enrich_results(self, data):
+    def enrich_results(self, data, start_idx, end_idx):
         """write data into json file
         Args:
             data (dict): meta data
@@ -83,15 +83,21 @@ class WikidataService(object):
             print("# of  results: "+ str(len(item_id_list)))
 
             for i, item in enumerate(item_id_list):
-
-                if i < 100:
+                
+                if i >= start_idx and i < end_idx:
+                    print("item: "+ str(i))
                     problabel_list = []
                     for result in data:
+
                         if result["item"]["value"] == item:
+
+
                             if "pic" in result.keys():
                                 pic = result["pic"]["value"]
+
                             label = result["itemLabel"]["value"]
                             predicate = result["property"]["value"].split("/")[-1].split("#")[-1]
+
                             if not predicate in LANG_PROP:
                                 if str(predicate).startswith("P"):
                                     result_predicate = self.getResult(self.get_prob_label(predicate))
@@ -101,6 +107,7 @@ class WikidataService(object):
                                             row = {"subject": label, "predicate":predicate, "object":result["proplabel"]["value"]}
                                             if not row in problabel_list:
                                                 problabel_list.append(row)
+
                     neighbouring_triples = self.get_statement_info(item, label)
 
                     if neighbouring_triples != None:
@@ -118,10 +125,12 @@ class WikidataService(object):
         return train_data
 
     def get_statement_info(self, item_id, label):
+
         query = self.get_sparql_neigbouring_triples(item_id)
         results = self.getResult(query)
 #      
         neighbouring_triples = []
+
         if results != False:
             for result in results:
 
@@ -135,7 +144,6 @@ class WikidataService(object):
                             neighbouring_triples.append(row)
 
         return neighbouring_triples
-
 
     def get_sparql_neigbouring_triples(self, item_id):
         item_id = item_id.split("/")[-1].split("#")[-1]
@@ -179,18 +187,22 @@ class WikidataService(object):
         return prob_query
 
 def main(config):
-    ## all data
-    all_data_path = "wiki_fictional_data.json" #PREFIX_PATH + config["DATA"]["all_data_path"]
-    wiki_id = "Q95074"
-    lang = "en"
+    
+    all_data_path = PREFIX_PATH + config["DATA"]["all_data_path"]
+    wiki_id =  config["DATA"]["wiki_id"]
+    lang = PREFIX_PATH + config["DATA"]["lang"]
+    start_idx = int(config["DATA"]["start_idx"])
+    end_idx = int(config["DATA"]["end_idx"])
     service = WikidataService(wiki_id, lang)
-    # service.create_dataset(all_data_path)
+    service.create_dataset(all_data_path, start_idx, end_idx)
+
     # # data with images
-    data_with_images_path = "wiki_fictional__data_with_image_100.json"
-    service.create_dataset(data_with_images_path, "images")
+    data_with_images_path = PREFIX_PATH + config["DATA"]["data_with_images_path"]
+    service.create_dataset(data_with_images_path, start_idx, end_idx, "images")
 
 
 if __name__ == '__main__':
+    
     config = configparser.ConfigParser()
     config.read(PREFIX_PATH + "config.ini")
     print(PREFIX_PATH)
