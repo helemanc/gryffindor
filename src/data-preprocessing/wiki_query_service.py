@@ -69,6 +69,7 @@ class WikidataService(object):
         with open(file_name, "w", encoding='utf8') as outfile:
             for id, line in enumerate(data):
                 json.dump({"id": id, "item info": line}, outfile)
+                outfile.write('\n')
 
     def enrich_results(self, data, start_idx, end_idx):
         """write data into json file
@@ -188,21 +189,19 @@ class WikidataService(object):
 
 def main(config):
     
-    all_data_path = PREFIX_PATH + config["DATA"]["all_data_path"]
-    wiki_id =  config["DATA"]["wiki_id"]
-    lang = PREFIX_PATH + config["DATA"]["lang"]
-    start_idx = int(config["DATA"]["start_idx"])
-    end_idx = int(config["DATA"]["end_idx"])
+    all_data_path = PREFIX_PATH + config["PATH"]["all_data_path"]
+    wiki_id =  config["PATH"]["wiki_id"]
+    lang = PREFIX_PATH + config["PATH"]["lang"]
+    start_idx = int(config["PATH"]["start_idx"])
+    end_idx = int(config["PATH"]["end_idx"])
     service = WikidataService(wiki_id, lang)
     service.create_dataset(all_data_path, start_idx, end_idx)
 
     # # data with images
-    data_with_images_path = PREFIX_PATH + config["DATA"]["data_with_images_path"]
+    data_with_images_path = PREFIX_PATH + config["PATH"]["data_with_images_path"]
     service.create_dataset(data_with_images_path, start_idx, end_idx, "images")
 
-
 if __name__ == '__main__':
-    
     config = configparser.ConfigParser()
     config.read(PREFIX_PATH + "config.ini")
     print(PREFIX_PATH)

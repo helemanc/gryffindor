@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
     config = configparser.ConfigParser()
     config.read(PREFIX_PATH + "config.ini")
-    query_file = PREFIX_PATH + config["DATA"]["wikidata_query_file"]
+    query_file = PREFIX_PATH + config["PATH"]["wikidata_query_file"]
     parsed_json = read_data.read_json(query_file)
     
     all_len = len(parsed_json)
@@ -87,5 +87,5 @@ if __name__ == '__main__':
             time.sleep(1)
     
     # use utils to save the dict.
-    write_data.save_data(PREFIX_PATH + config["DATA"]["dbpedia_abstracts"], dict_id_abs)
+    write_data.save_data(PREFIX_PATH + config["PATH"]["dbpedia_abstracts"], dict_id_abs)
         

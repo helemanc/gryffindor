@@ -77,9 +77,9 @@ if __name__ == '__main__':
 
     config = configparser.ConfigParser()
     config.read('config.ini')
-    generated_path = config['DATA']['generated_data_path']
-    original_path = config['DATA']['ground_truth_path']
-    raw_data_path = config['DATA']['data_with_images_path']
+    generated_path = config["PATH"]['generated_data_path']
+    original_path = config["PATH"]['ground_truth_path']
+    raw_data_path = config["PATH"]['data_with_images_path']
 
     main(raw_data_path, generated_path, original_path)
             

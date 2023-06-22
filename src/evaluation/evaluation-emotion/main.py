@@ -1,5 +1,9 @@
 import os
-from utils import data_loader, image_download, emotion_prediction_prompt
+import sys
+sys.path.append('../')
+
+from utils import data_loader
+import emotion_prediction_prompt
 
 
 # set project directory
@@ -35,16 +39,6 @@ df = emotion_prediction_prompt.compute_image_similarity(df, mode='run')
 # save df to json and to csv in the results folder
 df.to_json(os.path.join(project_dir, 'results', 'prompt_wiki_fiction_data_image.json'), indent=4, orient='records')
 df.to_csv(os.path.join(project_dir, 'results', 'prompt_wiki_fiction_data_image.csv'))
-
-
-
-
-
-
-
-
-
-
 
 # basic prompt -> naame of the character +
 # plain text of triples -> concatenation of the all sentences in made from the concatenation of the words of the triplets

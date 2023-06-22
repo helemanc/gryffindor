@@ -32,13 +32,14 @@ def main(raw_data_path, ground_truth_path_images, unavailable_pic_ids):
 
                 urllib.request.urlretrieve(data[i]["item info"]['pic'], path +"/"+ str(data[i]["item info"]['item_id']).split("/")[-1]+"_"+str(data[i]["item info"]['label'])+"."+data[i]["item info"]['pic'].split("/")[-1].split(".")[-1])
         except:
-            # print(data[i]["item info"]['item_id'])
+            # the image url is redirected or not available
             try:
                 page = requests.get(data[i]["item info"]['pic'])
                 img_url = page.url
                 urllib.request.urlretrieve(img_url, path + "/" + str(data[i]["item info"]['item_id']).split("/")[-1]+"_"+str(data[i]["item info"]['label'])+".jpg")
+                # redirected to the image url
             except:
-                # print(img_url)
+                # the image url is not available
                 images_id.append({"item_id": data[i]["item info"]['item_id'], "pic":data[i]["item info"]['pic']})
     
     write_data.save_data(unavailable_pic_ids, images_id)
