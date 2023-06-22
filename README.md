@@ -6,7 +6,7 @@ This repository contains the code and resources for the research project "Draw M
 wip!
 ## Repository Structure
 Folder Structure:
-``` bash
+``` 
 .
 ├── dataset     -->  Dataset folder
 │   ├── image-data 
