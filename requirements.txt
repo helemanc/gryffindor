@@ -1,2 +1,3 @@
 qwikidata==0.4.2
 deepface==0.0.68
+diffusers==0.11.1

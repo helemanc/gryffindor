@@ -1,4 +1,9 @@
-from sewar.full_ref import mse, rmse, psnr, uqi, ssim, ergas, scc, rase, sam, msssim, vifp
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""
+@author: Sefika
+"""
+from sewar.full_ref import  uqi
 import os
 path = "../data/"
 from PIL import Image
@@ -7,6 +12,7 @@ from skimage.color import rgb2gray
 from svglib.svglib import svg2rlg
 from skimage.transform import resize
 import numpy as np
+
 # read an image
 evaluation_results = []
 for item in os.listdir(path):

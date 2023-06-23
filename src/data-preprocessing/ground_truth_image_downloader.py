@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""
+@author: Sefika
+"""
 import os
 import sys
 import urllib.request

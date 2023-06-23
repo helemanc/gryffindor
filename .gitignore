@@ -8,6 +8,7 @@ src/data/
 images/
 *.so
 *.zip
+*.json
 old_data/
 old_results/
 # Distribution / packaging

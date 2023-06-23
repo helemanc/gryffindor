@@ -1,4 +1,8 @@
-
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+"""
+@author: Sefika
+"""
 from qwikidata.sparql import return_sparql_query_results
 # import pandas as pd
 import time
