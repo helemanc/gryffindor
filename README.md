@@ -17,7 +17,7 @@ Folder Structure:
 │   └── unavailable_pic_ids    ---> Fictional characters with unaccessible images, but have an image property in the Wikidata KB
 ├── scripts                    ---> Bash scripts
 └── src
-    ├── data-preprocessing     ---> Data collection codes from DBpedia and Wikipedia, and ground truth image downloader
+    ├── data-collection        ---> Data collection codes from DBpedia and Wikipedia, and ground truth image downloader
     ├── evaluation             ---> Result evaluation
     │   ├── evaluation-emotion
     │   └── evaluation-image-semantic
@@ -39,12 +39,12 @@ The ground truth image data is [available](https://huggingface.co/datasets/gryff
 ### 1.) Raw Data Collection
 * Wikidata Dataset Creation
 ```bash
-cd src/data-preprocessing
+cd src/data-collection
 python wiki_query_service.py
 ```
 * DBpedia Abstract Collection
 ```bash
-cd src/data-preprocessing
+cd src/data-collection
 python get_dbpedia_abstracts.py
 ```
 
@@ -54,7 +54,7 @@ python get_dbpedia_abstracts.py
 
 ### 3.) Ground Truth Image Collection
 ```bash
-cd src/data-preprocessing
+cd src/data-collection
 python ground_truth_image_downloader.py
 ```
 ### 4.) Image Generation
