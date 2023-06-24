@@ -214,7 +214,7 @@ def main(config):
 
     data_collection_type = config["DATA"]["data_collection_type"]
     wiki_id =  config["DATA"]["wiki_id"]
-    lang = PREFIX_PATH + config["DATA"]["lang"]
+    lang = config["DATA"]["lang"]
     start_idx = int(config["DATA"]["start_idx"])
     end_idx = int(config["DATA"]["end_idx"])
     service = WikidataService(wiki_id, lang)
