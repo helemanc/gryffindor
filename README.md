@@ -26,14 +26,14 @@ Folder Structure:
     ├── prompt-generator       ---> prompt generation codes
     └── utils                  ---> read, write, download, and data loader functions
 ```
-The repository is organized as follows:
+<!--The repository is organized as follows:
 
 - **data**: This directory contains the datasets created by querying Wikidata for fictional characters and enriching them with the prompts we generated.
 - **data/images**: Each item present in the data has its own folder within this directory. Each folder contains four images: the ground truth image retrieved from Wikidata (if available) and the four images generated using DALL-E based on the corresponding prompts we created.
 - **results**: This directory presents the results of our evaluation framework. It includes both a CSV and a JSON version of the analysis of prompts and their corresponding images.
 - **src**: The source code required to obtain the data, build the dataset, and run the evaluation framework can be found in this directory.
 - **src/utils**: This directory contains utility functions used for data retrieval, dataset construction, and building the evaluation framework.
-
+-->
 ## Usage
 The ground truth image data is [available](https://huggingface.co/datasets/gryffindor-ISWS/fictional-characters-image-dataset) @ :hugs: .
 ### 1.) Raw Data Collection
