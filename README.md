@@ -17,8 +17,8 @@ Folder Structure:
 │   └── unavailable_pic_ids    ---> Fictional characters with unaccessible images, but have an image property in the Wikidata KB
 ├── scripts                    ---> Bash scripts
 └── src
-    ├── data-collection        ---> Data collection codes from DBpedia and Wikipedia, and ground truth image downloader
-    ├── evaluation             ---> Evaluation Metrics
+    ├── data-collection        ---> Data collection codes from DBpedia and Wikidata, and ground truth image downloader
+    ├── evaluation             ---> Evaluation metrics
     │   ├── evaluation-emotion
     │   └── evaluation-image-semantic
     ├── image-generator        ---> text (prompt) to image generator
