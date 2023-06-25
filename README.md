@@ -36,6 +36,18 @@ Folder Structure:
 -->
 ## Usage
 The ground truth image data is [available](https://huggingface.co/datasets/gryffindor-ISWS/fictional-characters-image-dataset) @ :hugs: .
+
+* Clone the repository to the local.
+  
+  ```bash
+  git clone https://github.com/helemanc/gryffindor.git
+  ```
+* Install requirements: wip!
+  
+  ```bash
+  pip install -r requirements.txt 
+  ``` 
+  
 ### 1.) Raw Data Collection
 * Wikidata Dataset Creation
 ```bash
