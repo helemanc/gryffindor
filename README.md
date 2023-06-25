@@ -18,7 +18,7 @@ Folder Structure:
 ├── scripts                    ---> Bash scripts
 └── src
     ├── data-collection        ---> Data collection codes from DBpedia and Wikipedia, and ground truth image downloader
-    ├── evaluation             ---> Result evaluation
+    ├── evaluation             ---> Evaluation Metrics
     │   ├── evaluation-emotion
     │   └── evaluation-image-semantic
     ├── image-generator        ---> text (prompt) to image generator
