@@ -70,7 +70,7 @@ class WikidataService(object):
             all_items_without_images = list(set(all_items_without_images))
             #get the subset of the all data
             #randomly choose 1500 items
-            random_item_id_list = random.sample(all_data_item_id_list, choosen_items)
+            random_item_id_list = random.sample(all_items_without_images, choosen_items)
             all_enriched_results = self.enrich_results(all_results, 0, len(random_item_id_list))
             self.save_results(file_name, all_enriched_results)
 
