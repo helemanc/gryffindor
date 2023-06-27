@@ -39,52 +39,61 @@ The ground truth image data is [available](https://huggingface.co/datasets/gryff
 
 * Clone the repository to the local.
   
-  ```bash
-  git clone https://github.com/helemanc/gryffindor.git
-  ```
+```bash
+$ git clone https://github.com/helemanc/gryffindor.git
+```
 * Install requirements: wip!
-  
-  ```bash
-  pip install -r requirements.txt 
-  ``` 
+
+```bash
+$ pip install -r requirements.txt 
+``` 
   
 ### 1.) Raw Data Collection
 * Wikidata Dataset Creation
 ```bash
-cd src/data-collection
-python wiki_query_service.py
+$ cd src/data-collection
+$ python wiki_query_service.py
 ```
 * DBpedia Abstract Collection
 ```bash
-cd src/data-collection
-python get_dbpedia_abstracts.py
+$ cd src/data-collection
+$ python get_dbpedia_abstracts.py
 ```
 
 ### 2.) Prompt Generation
 
-(wip)
+```bash
+$ cd src/prompt-generator/graph2text/outputs/t5-base_13881
+$ cat best_model.ckpt.tar.gz.parta* > best_model.ckpt.tar.gz
+$ tar -xzvf best_model.ckpt.tar.gz
+$ cd best_tfmr
+$ cat pytorch_model.bin.tar.gz.parta* > pytorch_model.bin.tar.gz
+$ tar -xzvf pytorch_model.bin.tar.gz
+$ cd PATH2THISREPO/src/prompt-generator/
+$ python generatePrompt.py
+```
 
 ### 3.) Ground Truth Image Collection
 ```bash
-cd src/data-collection
-python ground_truth_image_downloader.py
+$ cd src/data-collection
+$ python ground_truth_image_downloader.py
 ```
 ### 4.) Image Generation
 ```bash
-cd src/image-generator
-python generator.py
+$ cd src/image-generator
+$ python generator.py
 ```
 ### 5.) Evaluation
 * Image Semantic Evaluation
 
 ```bash
-cd src/evaluation/evaluation-image-semantic
-python evaluation_uqi.py
+$ cd src/evaluation/evaluation-image-semantic
+$ python evaluation_uqi.py
 ```
 * Emotion Evaluation
 ```bash
-cd src/evaluation/evaluation-emotion
-python emotion_prediction_prompt.py
+$ cd src/evaluation/evaluation-emotion
+$ python emotion_prediction_prompt.py
 ```
 
 ## Contact

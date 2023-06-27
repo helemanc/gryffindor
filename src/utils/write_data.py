@@ -11,6 +11,6 @@ def save_data(file_name, data):
         data (dict): meta data
     """
     with open(file_name, 'w',  encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+        json.dump(data, f, indent=4)
   
     

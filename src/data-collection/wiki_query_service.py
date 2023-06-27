@@ -180,7 +180,7 @@ class WikidataService(object):
         return query
 
     def get_sparql_image(self):
-        dataset_query = """SELECT *
+        dataset_query = """SELECT DISTINCT *
                         WHERE {
                             ?item wdt:P31*/wdt:P279* wd:"""+self.wiki_id+""" ;
                                 rdfs:label ?itemLabel .
@@ -192,7 +192,7 @@ class WikidataService(object):
         return dataset_query
     
     def get_sparql(self):
-        dataset_query = """SELECT *
+        dataset_query = """SELECT DISTINCT *
                         WHERE {
                             ?item wdt:P31*/wdt:P279* wd:"""+self.wiki_id+""" ;
                                 rdfs:label ?itemLabel .
