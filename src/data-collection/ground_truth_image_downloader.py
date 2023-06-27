@@ -29,37 +29,40 @@ def main(raw_data_path, ground_truth_path_images, unavailable_pic_ids):
     data = read_data.read_json(raw_data_path)
     images_id = []
     for i in range(0, len(data)):
-        # print(data[i]["item info"]['pic'])
-        try:
-            if data[i]["item info"]['pic'] != None:
-                path = ground_truth_path_images + str(data[i]["item info"]['item_id']).split("/")[-1]+"_"+str(data[i]["item info"]['label'])
-                os.mkdir(path)
-
-                urllib.request.urlretrieve(data[i]["item info"]['pic'], path +"/"+ str(data[i]["item info"]['item_id']).split("/")[-1]+"_"+str(data[i]["item info"]['label'])+"."+data[i]["item info"]['pic'].split("/")[-1].split(".")[-1])
-        except:
-            # the image url is redirected or not available
+        # print(data[i]['pic'])
+        if True:
+            
             try:
-                page = requests.get(data[i]["item info"]['pic'])
-                img_url = page.url
-                urllib.request.urlretrieve(img_url, path + "/" + str(data[i]["item info"]['item_id']).split("/")[-1]+"_"+str(data[i]["item info"]['label'])+".jpg")
-                # redirected to the image url
+                if data[i]['pic'] != None:
+                    path = ground_truth_path_images + str(data[i]['item_id']).split("/")[-1]+"_"+str(data[i]['label'])
+                    os.mkdir(path)
+                    urllib.request.urlretrieve(data[i]['pic'], path +"/"+ str(data[i]['item_id']).split("/")[-1]+"_"+str(data[i]['label'])+"."+data[i]['pic'].split("/")[-1].split(".")[-1])
+                    print(i)
             except:
-                # the image url is not available
-                images_id.append({"item_id": data[i]["item info"]['item_id'], "pic":data[i]["item info"]['pic']})
-    
-    write_data.save_data(unavailable_pic_ids, images_id)
+                # the image url is redirected or not available
+                try:
+                    page = requests.get(data[i]['pic'])
+                    img_url = page.url
+                    urllib.request.urlretrieve(img_url, path + "/" + str(data[i]['item_id']).split("/")[-1]+"_"+str(data[i]['label'])+".jpg")
+                    # redirected to the image url
+                except:
+                    # the image url is not available
+                    # urllib.request.urlretrieve(img_url, path + "/" + str(data[i]['item_id']).split("/")[-1]+"_"+str(data[i]['label'])+".jpg")
+                    print(data[i]['item_id'])
+                    images_id.append({"item_id": data[i]['item_id'], "pic":data[i]['pic']})
+    # print(images_id)
+    # write_data.save_data(unavailable_pic_ids, images_id)
 
     
     
 if __name__ == "__main__":
 
     print(PREFIX_PATH)
-
     config = configparser.ConfigParser()
     config.read(PREFIX_PATH + "config.ini")
-    raw_data_path = config["PATH"]["RAW_DATA_PATH"]
-    ground_truth_path_images = config["PATH"]["GROUND_TRUTH_PATH_IMAGES"]
-    unavailable_pic_ids = config["PATH"]["UNAVAILABLE_PIC_IDS"]
+    raw_data_path = PREFIX_PATH + config["PATH"]["data_with_images_path"]
+    ground_truth_path_images = PREFIX_PATH + config["PATH"]["ground_truth_path"]
+    unavailable_pic_ids = PREFIX_PATH + config["PATH"]["UNAVAILABLE_PIC_IDS"]
 
     main(raw_data_path, ground_truth_path_images, unavailable_pic_ids)
 
