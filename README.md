@@ -62,7 +62,16 @@ $ python get_dbpedia_abstracts.py
 
 ### 2.) Prompt Generation
 
-(wip)
+```bash
+$ cd src/prompt-generator/graph2text/outputs/t5-base_13881
+$ cat best_model.ckpt.tar.gz.parta* > best_model.ckpt.tar.gz
+$ tar -xzvf best_model.ckpt.tar.gz
+$ cd best_tfmr
+$ cat pytorch_model.bin.tar.gz.parta* > pytorch_model.bin.tar.gz
+$ tar -xzvf pytorch_model.bin.tar.gz
+$ cd PATH2THISREPO/src/prompt-generator/
+$ python generatePrompt.py
+```
 
 ### 3.) Ground Truth Image Collection
 ```bash
