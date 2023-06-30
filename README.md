@@ -64,7 +64,7 @@ $ python get_dbpedia_abstracts.py
 
 ```bash
 $ cd src/prompt-generator/graph2text/outputs/t5-base_13881
-$ cat best_model.ckpt.tar.gz.parta* > best_model.ckpt.tar.gz
+$ please download the file best_model.ckpt.tar.gz [here](https://drive.google.com/file/d/193NnpRHzLGZRAejSiA6N1zvvyenq7z5G/view?usp=sharing)
 $ tar -xzvf best_model.ckpt.tar.gz
 $ cd best_tfmr
 $ cat pytorch_model.bin.tar.gz.parta* > pytorch_model.bin.tar.gz
