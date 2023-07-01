@@ -61,14 +61,23 @@ $ python get_dbpedia_abstracts.py
 ```
 
 ### 2.) Prompt Generation
+Please first download the file best_model.ckpt.tar.gz [here](https://drive.google.com/file/d/193NnpRHzLGZRAejSiA6N1zvvyenq7z5G/view?usp=sharing), and put it in the folder *src/prompt-generator/graph2text/outputs/t5-base_13881*.
 
+Then compress the file by using the following command:
 ```bash
 $ cd src/prompt-generator/graph2text/outputs/t5-base_13881
-$ cat best_model.ckpt.tar.gz.parta* > best_model.ckpt.tar.gz
 $ tar -xzvf best_model.ckpt.tar.gz
+```
+
+Prepare another model using the following command:
+```bash
 $ cd best_tfmr
 $ cat pytorch_model.bin.tar.gz.parta* > pytorch_model.bin.tar.gz
 $ tar -xzvf pytorch_model.bin.tar.gz
+```
+
+Finally, the prompt generator is ready to run:
+```bash
 $ cd PATH2THISREPO/src/prompt-generator/
 $ python generatePrompt.py
 ```
