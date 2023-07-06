@@ -16,7 +16,7 @@ sys.path.append('../')
 PACKAGE_PARENT = '.'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
-PREFIX_PATH =  "/".join(os.path.dirname(os.path.abspath(__file__)).split("/")[:-2]) + "/"
+PREFIX_PATH =  "" #"/".join(os.path.dirname(os.path.abspath(__file__)).split("/")[:-2]) + "/"
 
 
 
@@ -33,6 +33,8 @@ class ImageGenerator(object):
         self.torch_dtype = torch.float16 if self.device == "cuda" else torch.float32
         self.pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", torch_dtype=self.torch_dtype)
         self.pipe = self.pipe.to(self.device)
+        self.neg_prompt = "((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck)))"
+        print("Image generator is initialized.")
         
     def image_generator(self, prompt):
         """ Image generator for the given prompt.
@@ -48,9 +50,8 @@ class ImageGenerator(object):
             #stable diffusion model is here !
             compel_proc = Compel(tokenizer=self.pipe.tokenizer, text_encoder=self.pipe.text_encoder)
             prompt_embeds = compel_proc(prompt)
-            generator = torch.Generator(device).manual_seed(1024)
-            image = self.pipe(prompt_embeds=prompt_embeds, guidance_scale=7.5, num_inference_steps=15, generator = generator).images[0]
-
+            generator = torch.Generator(self.device).manual_seed(1024)
+            image = self.pipe(prompt_embeds=prompt_embeds,negative_prompt= self.neg_prompt, num_inference_steps=50, generator = generator).images[0]
             return image
         except:
             print("Error in image generation")
@@ -74,22 +75,29 @@ class ImageGenerator(object):
 
             if os.path.isdir(path):
 
-                basic_prompt_image = self.image_generator(item["basic_label"])
-                plain_prompt_image = self.image_generator(item["plain_triples"])
-                verbalised_prompt_image = self.image_generator(item["verbalised_triples"])
-                dbpedia_abstract_image = self.image_generator(item["dbpedia_abstract"])
                 
-                if basic_prompt_image != None:
-                    basic_prompt_image.save(path + 'basic_prompt.jpg')
+                
+                
+                
+                if item["basic_label"] != "":
+                    basic_prompt_image = self.image_generator(item["basic_label"])
+                    if basic_prompt_image != None:
+                        basic_prompt_image.save(path + 'basic_prompt.jpg')
+                        
+                if item["plain_triples"] != "":
+                    plain_prompt_image = self.image_generator(item["plain_triples"])
+                    if plain_prompt_image != None:
+                        plain_prompt_image.save(path + 'plain_prompt.jpg')
 
-                if plain_prompt_image != None:
-                   plain_prompt_image.save(path + 'plain_prompt.jpg')
+                if item["verbalised_triples"] != "":
+                    verbalised_prompt_image = self.image_generator(item["verbalised_triples"])
+                    if verbalised_prompt_image != None:
+                        verbalised_prompt_image.save(path + 'verbalised_prompt.jpg')
 
-                if verbalised_prompt_image != None:
-                    verbalised_prompt_image.save(path + 'verbalised_prompt.jpg')
-
-                if dbpedia_abstract_image != None:
-                    dbpedia_abstract_image.save(path + 'dbpedia_abstract_prompt.jpg')
+                if item["dbpedia_abstract"] != "":
+                    dbpedia_abstract_image = self.image_generator(item["dbpedia_abstract"])
+                    if dbpedia_abstract_image != None:
+                        dbpedia_abstract_image.save(path + 'dbpedia_abstract_prompt.jpg')
 
 
 def main(prompt_data_path, generated_path):
