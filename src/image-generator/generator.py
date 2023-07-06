@@ -74,16 +74,11 @@ class ImageGenerator(object):
             os.makedirs(path, exist_ok=True)
 
             if os.path.isdir(path):
-
-                
-                
-                
-                
                 if item["basic_label"] != "":
                     basic_prompt_image = self.image_generator(item["basic_label"])
                     if basic_prompt_image != None:
                         basic_prompt_image.save(path + 'basic_prompt.jpg')
-                        
+
                 if item["plain_triples"] != "":
                     plain_prompt_image = self.image_generator(item["plain_triples"])
                     if plain_prompt_image != None:
