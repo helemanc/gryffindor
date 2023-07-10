@@ -3,20 +3,21 @@
 """
 @author: Sefika
 """
-import json
 import os
 import sys
 import configparser
-import urllib.request
 import torch
-from diffusers import StableDiffusionPipeline
+
+from diffusers import StableDiffusionPipeline, DPMSolverMultistepScheduler
+
 from compel import Compel
+
 sys.path.append('../')
 
 PACKAGE_PARENT = '.'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
-PREFIX_PATH =  "/".join(os.path.dirname(os.path.abspath(__file__)).split("/")[:-2]) + "/"
+PREFIX_PATH =   "/".join(os.path.dirname(os.path.abspath(__file__)).split("/")[:-2]) + "/"
 
 
 
@@ -25,15 +26,18 @@ from utils import read_data
 
 class ImageGenerator(object):
 
-    def __init__(self):
+    def __init__(self, model_id, model_name):
         """
         Initialize the image generator.
         """
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.torch_dtype = torch.float16 if self.device == "cuda" else torch.float32
-        self.pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", torch_dtype=self.torch_dtype)
-        self.pipe = self.pipe.to(self.device)
-        self.neg_prompt = "((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck)))"
+        if model_name == "diffusion":
+            self.device = "cuda" if torch.cuda.is_available() else "cpu"
+            self.torch_dtype = torch.float16 if self.device == "cuda" else torch.float32
+            self.pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=self.torch_dtype)
+            self.pipe = self.pipe.to(self.device)
+            self.pipe.enable_attention_slicing()
+            self.neg_prompt = "((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), [out of frame], extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck)))"
+        
         print("Image generator is initialized.")
         
     def image_generator(self, prompt):
@@ -51,7 +55,8 @@ class ImageGenerator(object):
             compel_proc = Compel(tokenizer=self.pipe.tokenizer, text_encoder=self.pipe.text_encoder)
             prompt_embeds = compel_proc(prompt)
             generator = torch.Generator(self.device).manual_seed(1024)
-            image = self.pipe(prompt_embeds=prompt_embeds,negative_prompt= self.neg_prompt, num_inference_steps=50, generator = generator).images[0]
+            image = self.pipe(prompt_embeds=prompt_embeds,negative_prompt=self.neg_prompt, num_inference_steps=50, generator = generator).images[0]
+            
             return image
         except:
             print("Error in image generation")
@@ -95,7 +100,7 @@ class ImageGenerator(object):
                         dbpedia_abstract_image.save(path + 'dbpedia_abstract_prompt.jpg')
 
 
-def main(prompt_data_path, generated_path):
+def main(prompt_data_path, generated_path, model_id, model_name):
     """ Main function for image generation.
     
     Args: 
@@ -103,18 +108,23 @@ def main(prompt_data_path, generated_path):
         generated_path (str): path for generated images
         """
     #create image generator
-    image_generator = ImageGenerator()
+    image_generator = ImageGenerator(model_id, model_name)
     #read the data
     item_list = read_data.read_json(prompt_data_path)
     #generate images
-    image_generator.generate_images(item_list, generated_path)
+    image_generator.generate_images(item_list[750:1000], generated_path)
 
 
 if __name__ == '__main__':
+
     print(PREFIX_PATH)
+    
     config = configparser.ConfigParser()
     config.read(PREFIX_PATH + 'config.ini')
-    generated_path = PREFIX_PATH + config["PATH"]['generated_data_path']
-    prompt_data_path = PREFIX_PATH + config["PATH"]['prompt_subset_data_with_images_path']
-    main(prompt_data_path, generated_path)
+    generated_path = PREFIX_PATH + config["PATH"]['experiment_difffusion_v_2_1_data_without_images_path']
+    prompt_data_path = PREFIX_PATH + config["PATH"]['prompt_subset_data_without_images_path']
+    model_id = config["MODEL"]['model_id']
+    model_name = config["MODEL"]['model_name']
+
+    main(prompt_data_path, generated_path, model_id, model_name)
             
