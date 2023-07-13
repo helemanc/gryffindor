@@ -1,9 +1,11 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+**__pycache__/
 *.py[cod]
 *$py.class
 src/data/
 **.DS_Store
+**.png
+**.jpeg
 # C extensions
 dataset/
 *.so
