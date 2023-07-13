@@ -5,63 +5,82 @@
 """
 from sewar.full_ref import  uqi
 import os
-path = "../data/"
-from PIL import Image
+import sys
+
 import json
-from skimage.color import rgb2gray
-from svglib.svglib import svg2rlg
 from skimage.transform import resize
 import numpy as np
+import configparser
+from PIL import Image, ImageFile
+import cv2
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+PACKAGE_PARENT = '.'
 
-# read an image
-evaluation_results = []
-for item in os.listdir(path):
+SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
+sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
+PREFIX_PATH = "/".join(os.path.dirname(os.path.abspath(__file__)).split("/")[:-3]) + "/"
+
+def get_uqi_alldata(ground_truth_path, generated_path, evalution_result_path):
+    """
+    Get uqi for all generated images.
     
-    if os.path.isdir(path+item):
-        
-        image = os.listdir(path+item)                
-        if len(image)== 4:
-            basic_prompt = resize(np.array(Image.open(path+item+"/"+image[0]).convert("L")), (1024, 1024))
-            verbalised_prompt = resize(np.array(Image.open(path+item+"/"+image[3]).convert("L")), (1024, 1024))
-            plain_prompt = resize(np.array(Image.open(path+item+"/"+image[2]).convert("L")), (1024, 1024))
-            if image[1].split(".")[-1]!= "svg":
-                ground = resize(np.array(Image.open(path+item+"/"+image[1]).convert("L")), (1024, 1024))
+    Args:
+        ground_truth_path (str): path of the ground truth images
+        generated_path (str): path of the generated images
+        evalution_result_path (str): path of the evaluation results
+    """
+    evaluation_results = []
+    for original_image_file in os.listdir(ground_truth_path):
+        if original_image_file != ".DS_Store":
+            original_image_path = ground_truth_path + original_image_file + "/"+ os.listdir(ground_truth_path + original_image_file)[0]
+            # print(original_image_path)
+            generated_image_folder_path = generated_path + original_image_file + "/"
+            # print(generated_image_folder_path)
+            
+            ground = cv2.imread(original_image_path, cv2.IMREAD_UNCHANGED)
+            if ground is not None:
+                evaluation_row = {}
+                evaluation_row["original_image"] = original_image_file
+
+                if len(np.array(ground).shape) == 3:
+                    ground = ground[:, :, 0]
+
                 ground = resize(ground, (1024, 1024))
-                row = {"item_id":item,
-                        "basic_prompt-uqi: ": uqi(ground,basic_prompt),
-                        "verbalised_prompt-uqi: ": uqi(ground,verbalised_prompt),
-                        "plain_prompt-uqi: ":uqi(ground,plain_prompt)}
-                evaluation_results.append(row)
-        if len(image)== 2:
-            basic_prompt = resize(np.array(Image.open(path+item+"/"+image[0]).convert("L")), (1024, 1024))
-          
-            if image[1].split(".")[-1]!= "svg":
-                ground = resize(np.array(Image.open(path+item+"/"+image[1]).convert("L")), (1024, 1024))
-                ground = resize(ground, (1024, 1024))
-                row = {"item_id":item,
-                        "basic_prompt-uqi: ": uqi(ground,basic_prompt),
-                        "verbalised_prompt-uqi: ": "None",
-                        "plain_prompt-uqi: ":"None"}
-                evaluation_results.append(row)
-        if len(image)== 3:
-            basic_prompt = resize(np.array(Image.open(path+item+"/"+image[0]).convert("L")), (1024, 1024))
-            if image[2] == "verbalised_prompt.jpg":
-                verbalised_prompt = resize(np.array(Image.open(path+item+"/"+image[2]).convert("L")), (1024, 1024))
-                plain_prompt = "None"
-            elif image[2] == "plain_prompt.jpg":
-                plain_prompt = resize(np.array(Image.open(path+item+"/"+image[2]).convert("L")), (1024, 1024))
-                verbalised_prompt != "None"
-            if image[1].split(".")[-1]!= "svg":
-                ground = resize(np.array(Image.open(path+item+"/"+image[1]).convert("L")), (1024, 1024))
-                ground = resize(ground, (1024, 1024))
-                row = {"item_id":item,
-                        "basic_prompt-uqi: ": uqi(ground,basic_prompt),
-                        "verbalised_prompt-uqi: ": uqi(ground,verbalised_prompt),
-                        "plain_prompt-uqi: ":}
-                evaluation_results.append(row)
 
-with open("evalution_wiki_color.json", "w", encoding='utf8') as outfile:
-    json.dump(evaluation_results, outfile)
+                for generated_image_file in os.listdir(generated_image_folder_path):
+
+                    
+                    if generated_image_file == "basic_prompt.jpg":
+                        basic_prompt = resize(np.array(Image.open(generated_image_folder_path+generated_image_file).convert("L")), (1024, 1024))
+                        evaluation_row["basic_prompt"] = uqi(ground, basic_prompt)
+
+                    if generated_image_file == "plain_prompt.jpg":
+                        plain_prompt = resize(np.array(Image.open(generated_image_folder_path+generated_image_file).convert("L")), (1024, 1024))
+                        evaluation_row["plain_prompt"] = uqi(ground, plain_prompt)
+
+                    if generated_image_file == "verbalised_prompt.jpg":
+                        verbalised_prompt = resize(np.array(Image.open(generated_image_folder_path+generated_image_file).convert("L")), (1024, 1024))
+                        evaluation_row["verbalised_prompt"] = uqi(ground, verbalised_prompt)
+
+                    if generated_image_file == "dbpedia_abstract_prompt.jpg":
+                        dbpedia_abstract_prompt = resize(np.array(Image.open(generated_image_folder_path+generated_image_file).convert("L")), (1024, 1024))
+                        evaluation_row["dbpedia_abstract_prompt"] = uqi(ground, dbpedia_abstract_prompt)
+                    
+                evaluation_results.append(evaluation_row)
+           
+    with open(evalution_result_path, "w", encoding="utf-8") as outfile:
+        json.dump(evaluation_results, outfile, indent=4)
 
 
 
+
+if __name__ == "__main__":
+
+    config = configparser.ConfigParser()
+    config.read(PREFIX_PATH + "config.ini")
+
+    generated_path = PREFIX_PATH + config["PATH"]["experiment_difffusion_v_2_1_data_path"]
+    ground_truth_path = PREFIX_PATH + config["PATH"]["ground_truth_path"]
+    evalution_result_path = PREFIX_PATH + config["EVALUATION"]["evaluation_uqi"]
+
+    get_uqi_alldata(ground_truth_path, generated_path, evalution_result_path)
