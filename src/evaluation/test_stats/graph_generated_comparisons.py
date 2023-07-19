@@ -8,14 +8,16 @@ Created on Wed Jul 12 19:47:07 2023
 # libraries & dataset
 import json
 import pandas as pd
+
+### load file with img-to-img comparison (do not include ground truth)
 file="C:/Users/Celian/Downloads/CLIP_SD21_dist_img_img.json"
 with open(file, encoding="utf8") as user_file:
       parsed_json = json.load(user_file)
 
 
-
+### list of combinaison of comparison
 metrics=["basic_prompt-dbpedia_abstract_prompt","basic_prompt-plain_prompt","basic_prompt-verbalised_prompt","plain_prompt-dbpedia_abstract_prompt","plain_prompt-verbalised_prompt","verbalised_prompt-dbpedia_abstract_prompt"]
-# CHECK LENGTH OF TWO VECT 
+# create a dataframe
 data = {}
 for type_ in parsed_json.keys():
     for QID in parsed_json[type_].keys():
@@ -36,7 +38,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 # set a grey background (use sns.set_theme() if seaborn version 0.11.0 or above) 
 
-
+############## plot distribution inter sample (with img/without)
 fig, axs = plt.subplots(3, 2, figsize=(20, 20))
 fig.suptitle('Clip Similarity bewteen generated images')
 n=0
@@ -61,13 +63,11 @@ for i in range(3):
             
 plt.show()
 
-########### GROUND TRUTH COMPARE
-
+########### GROUND TRUTH COMPARE 
 metrics2=["groundtruth-basic_prompt","groundtruth-dbpedia_abstract_prompt","groundtruth-plain_prompt","groundtruth-verbalised_prompt"]
 data = {}
 for type_ in parsed_json.keys():
     for QID in parsed_json[type_].keys():
-        #data["QID"].append(QID)
         for m in metrics2:
             new_col=type_+"_"+m
             if(new_col not in data.keys()):
@@ -77,7 +77,8 @@ for type_ in parsed_json.keys():
             else:
                  data[new_col].append(None)
 df = pd.DataFrame(data)
-#fig, axs = plt.subplots(1, 4, figsize=(7, 7))
+
+#### PLOT DISTRIB IN REGARDS OF GROUNDTRUTH
 sns.set(style="whitegrid")
 colors=["blue","red","green","yellow"]
 for i in range(len(metrics2)):
