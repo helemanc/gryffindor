@@ -9,10 +9,9 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 
+### HUMAN EVAL WITH JUST THE SCORES
 file="C:/Users/Celian/Desktop/ISWS/SESSION2/data_others/HumanEval.csv"
 df=pd.read_csv(file,index_col=0)
-
-
 file="C:/Users/Celian/Desktop/ISWS/SESSION2/data_others/all_metrics_subset.json"
 with open(file, encoding="utf8") as user_file:
       metrics = json.load(user_file)
@@ -29,8 +28,6 @@ df_eval=pd.concat([ eval_mean,eval_var], axis=1)
 df_eval.columns = [ 'mean', 'std']
 #df_eval.set_index('eval', inplace=True, drop=True)
 dict_eval=df_eval.to_dict('index')
-
-
 
 
 prompts=["(a)","(b)","(c)","(d)"]
@@ -55,17 +52,17 @@ for p in range(len(prompts)):
        
         for eval_ in dict_prompt[k].keys():
             if(dict_eval[eval_]["std"]!=0):
+                #### STANDARDIZED SCORE FOR EACH EVALUATOR
                 standardized=(dict_prompt[k][eval_]-dict_eval[eval_]["mean"])/dict_eval[eval_]["std"]
                 dict_norm[k].append(standardized)
         if(prompt_list[p] not in dict_QID_prompt[k].keys()):
             dict_QID_prompt[k][prompt_list[p]]=np.mean(dict_norm[k])
 
     
-    
+############ GROUP RESULT BY QID
 results_tables={}
 for p in prompt_list:
     results_tables[p]=[]
-    
 for QID in dict_QID_prompt.keys():
     for p in dict_QID_prompt[QID].keys():
         tempo={"QID":QID,
@@ -76,7 +73,7 @@ for QID in dict_QID_prompt.keys():
         results_tables[p].append(tempo)
         
 
-
+##### COMPUTE CORR AND DRAW GRAPHS
 import seaborn as sns
 dir_save="C:/Users/Celian/Desktop/ISWS/SESSION2/figure/"
 for p in prompt_list:
