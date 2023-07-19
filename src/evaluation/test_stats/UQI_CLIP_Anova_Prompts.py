@@ -6,31 +6,30 @@ Created on Mon Jul 17 08:58:29 2023
 """
 import json
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from bioinfokit.analys import stat
 
+####### load aggrageted metrics file
 file="C:/Users/Celian/Downloads/all_metrics.json"
 with open(file, encoding="utf8") as user_file:
       parsed_json = json.load(user_file)
+##### create a list of dict
 json2=[]
 for QID in parsed_json.keys():
     temp= parsed_json[QID]
     temp["QID"]=QID
     json2.append(temp)
-    
+
+### change the shape and transform it into a pandas DF
 colnames=['basic_prompt', 'plain_prompt', 'verbalised_prompt', 'dbpedia_abstract_prompt']
-
-
 df=pd.json_normalize(json2,max_level=1)
 
 ############# ANOVA + Tukey’s HSD TEST
-import matplotlib.pyplot as plt
-import seaborn as sns
-from bioinfokit.analys import stat
-
 ############# CLIP
-
 ## WITH ABSTRACT
-df_with_abstract=df[df["clip.dbpedia_abstract_prompt"].notnull()]
 
+df_with_abstract=df[df["clip.dbpedia_abstract_prompt"].notnull()]
 val=['clip.basic_prompt',
  'clip.plain_prompt',
  'clip.verbalised_prompt', 'clip.dbpedia_abstract_prompt']
