@@ -5,14 +5,14 @@ Created on Tue Jul 11 13:55:15 2023
 @author: Celian
 """
 import json
-
 from diffusers import StableDiffusionPipeline
 from compel import Compel
 
+######### LOAD COMPEL FOR COUNTING TOKENS
 pipeline = StableDiffusionPipeline.from_pretrained("stabilityai/stable-diffusion-2-1")
 compel = Compel(tokenizer=pipeline.tokenizer, text_encoder=pipeline.text_encoder)
 
-
+############ FOCUS ON ABSTRACTS
 abstracts={"withIMG":"C:/Users/Celian/Desktop/ISWS/SESSION2/1500_wiki_abs_with_image.json","withoutIMG":"C:/Users/Celian/Desktop/ISWS/SESSION2/1500_wiki_abs_without_image.json"}
 stats={"nb_abstracts":0,"nb_triples":0,"sum_len_abs":0,"sum_len_pT":0,"sum_len_vT":0}
 stats_type={"withIMG":stats.copy(),"withoutIMG":stats.copy()}
@@ -22,13 +22,11 @@ for k in abstracts.keys():
     print(">>>>>>>>",k)
     with open(abstracts[k], encoding="utf8") as user_file:
       parsed_json = json.load(user_file)
-    
-    
+        
     for QID in parsed_json.keys():
         dbpedia_abstract=parsed_json[QID]
         if(QID not in dict_by_item[k].keys()):
             dict_by_item[k][QID]={}
-        
         if("have_abstract" not in dict_by_item[k][QID].keys()):
             dict_by_item[k][QID]["have_abstract"]=0
         if("len_abstract" not in dict_by_item[k][QID].keys() ):
@@ -37,15 +35,13 @@ for k in abstracts.keys():
            print("-have abstract")
            dict_by_item[k][QID]["have_abstract"]=1
            if(len(dbpedia_abstract)>3):
-               
                stats_type[k]["nb_abstracts"]+=1
                token_desc=compel.describe_tokenization(dbpedia_abstract)
                dict_by_item[k][QID]["len_abstract"]=len(token_desc)
-               
                stats_type[k]["sum_len_abs"]+=dict_by_item[k][QID]["len_abstract"]
-               
                print("-nb tokens : ",len(token_desc))
-
+               
+#################### FOCUS ON THE OTHER PROMPTS
 prompts={"withIMG":"C:/Users/Celian/Desktop/ISWS/SESSION2/data_others/prompts_wiki_fictional_characters_raw_data_with_image.json","withoutIMG":"C:/Users/Celian/Desktop/ISWS/SESSION2/data_others/prompts_wiki_fictional_data_without_image(1).json"}
 all_relations_list={"withIMG":[],"withoutIMG":[]}
 for k in prompts.keys():
@@ -87,7 +83,7 @@ for k in prompts.keys():
              stats_type[k]["nb_triples"]+=dict_by_item[k][QID]["nb_rel"]
              dict_by_item[k][QID]["nb_uniq_rel"]=len(nb_by_rel.keys())
              dict_by_item[k][QID]["nb_by_rel"]=nb_by_rel
-             
+########## SAVE FILES
 with open('C:/Users/Celian/Downloads/Stats_prompts_global.json', 'w', encoding='utf-8') as f:
     json.dump(stats_type,f)
 with open('C:/Users/Celian/Downloads/Stats_by_entity.json', 'w', encoding='utf-8') as f:
