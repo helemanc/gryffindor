@@ -104,6 +104,14 @@ $ python evaluation_uqi.py
 $ cd src/evaluation/evaluation-emotion
 $ python emotion_prediction_prompt.py
 ```
+* [Human Evaluation](https://github.com/helemanc/gryffindor/tree/main/src/evaluation/HumanEval)
+* [FID](https://github.com/helemanc/gryffindor/tree/main/src/evaluation/FID)
+* [CLIP Score](https://github.com/helemanc/gryffindor/tree/main/src/evaluation/CLIP-score)
+* [Analysis](https://github.com/helemanc/gryffindor/tree/main/src/evaluation/CLIP_score_analysis)
+  
+
+### 6. Statistical Analysis
+* The analysis about the evaluation [results](https://github.com/helemanc/gryffindor/tree/main/src/evaluation/test_stats)
 
 ## Contact
 
